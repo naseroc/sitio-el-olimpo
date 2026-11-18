@@ -14,6 +14,7 @@ Sitio estático de 7 páginas, listo para subir al hosting de parvulosolimpo.cl 
 Incluye además styles.css, script.js, favicon.svg, sitemap.xml y robots.txt.
 
 ## Antes de publicar
+0. Quitar de las 7 páginas la línea `<meta name="robots" content="noindex, nofollow">`. Está solo para la vista previa de revisión en GitHub Pages; si se deja, Google no indexará el sitio.
 1. Fotos: reemplazar cada recuadro rayado ("Foto: ...") por una imagen real (`<img src="..." alt="...">`). Sin rostros de niños, o solo con autorización escrita de los apoderados.
 2. Testimonios: reemplazar los 3 espacios de la portada por testimonios reales, con el nombre del apoderado y su autorización. No usar textos inventados.
 3. Jornada extendida: agregar el horario en niveles.html (dice "Consulta el horario") y en las preguntas frecuentes de matricula.html.
