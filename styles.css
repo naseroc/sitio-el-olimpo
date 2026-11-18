@@ -1,0 +1,205 @@
+/* Escuela de Párvulos El Olimpo — hoja de estilos */
+:root{
+  --pino:#17312A;      /* texto y fondos oscuros */
+  --pasto:#3E8E4F;     /* verde de acento */
+  --hoja:#DCEBDD;      /* verde muy claro para bandas */
+  --cielo:#F3F8F4;     /* fondo general */
+  --girasol:#F2C23A;   /* botones principales */
+  --corteza:#7A5A3A;   /* detalles cálidos */
+  --papel:#FFFFFF;
+  --suave:#4F6660;     /* texto secundario */
+  --borde:#C9DCCD;
+  --radio:14px;
+  --ancho:1120px;
+  --f-tit:"Bricolage Grotesque", system-ui, sans-serif;
+  --f-txt:"Atkinson Hyperlegible", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--cielo);color:var(--pino);font-family:var(--f-txt);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:var(--pasto);text-underline-offset:3px}
+a:hover{color:var(--pino)}
+:focus-visible{outline:3px solid var(--girasol);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-tit);line-height:1.12;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5.4vw,3.9rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:700}
+p{margin:0 0 1em;max-width:68ch}
+.envoltura{max-width:var(--ancho);margin:0 auto;padding:0 20px}
+.saltar{position:absolute;left:-999px;top:8px;background:var(--girasol);color:var(--pino);padding:8px 14px;border-radius:8px;z-index:50}
+.saltar:focus{left:12px}
+
+/* Encabezado */
+.cabecera{background:var(--cielo);position:sticky;top:0;z-index:30;border-bottom:1px solid var(--borde)}
+.cabecera .envoltura{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--pino)}
+.marca svg{width:42px;height:42px;flex:none}
+.marca b{font-family:var(--f-tit);font-size:1.15rem;display:block;line-height:1.1}
+.marca small{color:var(--suave);font-size:.82rem}
+.menu{display:flex;gap:4px;align-items:center}
+.menu a{color:var(--pino);text-decoration:none;padding:8px 12px;border-radius:999px;font-size:.98rem}
+.menu a:hover{background:var(--hoja)}
+.menu a[aria-current="page"]{background:var(--hoja);font-weight:700}
+.boton-menu{display:none;background:none;border:2px solid var(--pino);border-radius:10px;padding:6px 12px;font:inherit;color:var(--pino);cursor:pointer}
+@media (max-width:900px){
+  .boton-menu{display:block}
+  .menu{display:none;position:absolute;left:0;right:0;top:72px;background:var(--cielo);flex-direction:column;align-items:stretch;padding:8px 20px 20px;border-bottom:1px solid var(--borde)}
+  .menu.abierto{display:flex}
+  .menu a{padding:12px 14px}
+}
+
+/* Botones */
+.boton{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-tit);font-weight:700;font-size:1.05rem;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer;line-height:1.1}
+.boton-principal{background:var(--girasol);color:var(--pino)}
+.boton-principal:hover{background:#E5B323;color:var(--pino)}
+.boton-secundario{border-color:var(--pino);color:var(--pino);background:transparent}
+.boton-secundario:hover{background:var(--pino);color:var(--papel)}
+.boton svg{width:20px;height:20px}
+.acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+/* Portada */
+.portada{padding:56px 0 24px;overflow:hidden}
+.portada .envoltura{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.portada .bajada{font-size:1.2rem;color:var(--suave);max-width:46ch}
+.aviso-matricula{display:inline-block;background:var(--pino);color:var(--papel);padding:6px 14px;border-radius:999px;font-size:.95rem;margin-bottom:18px}
+.ilustracion{width:100%;height:auto}
+@media (max-width:860px){.portada .envoltura{grid-template-columns:1fr}.portada{padding-top:32px}}
+
+/* Secciones */
+.seccion{padding:72px 0}
+.seccion-hoja{background:var(--hoja)}
+.seccion-pino{background:var(--pino);color:var(--papel)}
+.seccion-pino a:not(.boton){color:var(--girasol)}
+.seccion-pino p{color:#D9E7DF}
+.intro{max-width:62ch;margin-bottom:36px}
+.intro p{color:var(--suave)}
+.seccion-pino .intro p{color:#C7DACF}
+
+/* Pilares de la portada: lista en dos columnas, no tarjetas */
+.pilares{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 56px;list-style:none;padding:0;margin:0}
+.pilares li{display:grid;grid-template-columns:48px 1fr;gap:16px}
+.pilares svg{width:48px;height:48px}
+.pilares p{color:var(--suave);margin:0}
+@media (max-width:720px){.pilares{grid-template-columns:1fr}}
+
+/* Niveles */
+.niveles{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--pino);border-radius:var(--radio);overflow:hidden;background:var(--papel)}
+.nivel{padding:22px 20px;border-right:2px solid var(--pino)}
+.nivel:last-child{border-right:0}
+.nivel .edad{font-family:var(--f-tit);font-size:2rem;font-weight:800;color:var(--pasto);line-height:1}
+.nivel .edad span{font-size:1rem;color:var(--suave);font-weight:600}
+.nivel h3{margin:10px 0 4px}
+.nivel p{color:var(--suave);font-size:.98rem;margin:0}
+@media (max-width:860px){.niveles{grid-template-columns:repeat(2,1fr)}.nivel:nth-child(2){border-right:0}.nivel:nth-child(-n+2){border-bottom:2px solid var(--pino)}}
+@media (max-width:480px){.niveles{grid-template-columns:1fr}.nivel{border-right:0;border-bottom:2px solid var(--pino)}.nivel:last-child{border-bottom:0}}
+
+/* Jornadas */
+.jornadas{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.jornada{background:var(--papel);border-radius:var(--radio);padding:24px;border:1px solid var(--borde)}
+.jornada .hora{font-family:var(--f-tit);font-size:1.5rem;font-weight:700}
+.jornada.destacada{border:2px solid var(--pasto)}
+@media (max-width:860px){.jornadas{grid-template-columns:1fr}}
+
+/* Lista con hojitas */
+.lista-hoja{list-style:none;padding:0;margin:0 0 1em}
+.lista-hoja li{position:relative;padding-left:32px;margin-bottom:12px;max-width:66ch}
+.lista-hoja li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:18px;background:var(--pasto);border-radius:0 70% 0 70%}
+.seccion-pino .lista-hoja li::before{background:var(--girasol)}
+
+/* Columnas */
+.dos-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media (max-width:860px){.dos-col{grid-template-columns:1fr;gap:28px}}
+
+/* Cita de la dueña */
+.cita{font-family:var(--f-tit);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;line-height:1.3;margin:0 0 16px;max-width:30ch}
+.firma{color:var(--girasol);font-weight:700}
+
+/* Fotos pendientes */
+.foto{background:repeating-linear-gradient(135deg,#E7F0E8 0 14px,#DCE9DE 14px 28px);border:2px dashed #9DBBA4;border-radius:var(--radio);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--suave);font-size:.95rem;padding:16px;aspect-ratio:4/3}
+.foto.alta{aspect-ratio:3/4}
+.foto.ancha{aspect-ratio:16/9}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.galeria .ancha{grid-column:span 2}
+@media (max-width:720px){.galeria{grid-template-columns:1fr}.galeria .ancha{grid-column:auto}}
+
+/* Testimonios (espacios para reales) */
+.testimonios{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testimonio{margin:0;background:var(--papel);border-left:5px solid var(--girasol);padding:22px;border-radius:0 var(--radio) var(--radio) 0;color:var(--suave);font-style:italic}
+@media (max-width:860px){.testimonios{grid-template-columns:1fr}}
+
+/* Pasos de matrícula (secuencia real) */
+.pasos{list-style:none;padding:0;margin:0;counter-reset:paso;display:grid;gap:0}
+.pasos li{counter-increment:paso;display:grid;grid-template-columns:64px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--borde)}
+.pasos li:last-child{border-bottom:1px solid var(--borde)}
+.pasos li::before{content:counter(paso);font-family:var(--f-tit);font-weight:800;font-size:2.4rem;color:var(--pasto);line-height:1}
+.pasos p{margin:0;color:var(--suave)}
+
+/* Formulario */
+.formulario{background:var(--papel);border-radius:var(--radio);padding:28px;border:1px solid var(--borde)}
+.campo{margin-bottom:16px}
+.campo label{display:block;font-weight:700;margin-bottom:6px}
+.campo input,.campo select,.campo textarea{width:100%;font:inherit;padding:12px 14px;border:2px solid var(--borde);border-radius:10px;background:var(--cielo);color:var(--pino)}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--pasto);outline:none}
+.ayuda{font-size:.9rem;color:var(--suave)}
+.error{color:#A3341F;font-size:.92rem;margin-top:6px;display:none}
+.campo.con-error .error{display:block}
+.campo.con-error input,.campo.con-error select{border-color:#A3341F}
+
+/* Preguntas frecuentes */
+.preguntas details{border-top:1px solid var(--borde);padding:4px 0}
+.preguntas details:last-child{border-bottom:1px solid var(--borde)}
+.preguntas summary{cursor:pointer;font-family:var(--f-tit);font-weight:700;font-size:1.12rem;padding:16px 36px 16px 0;list-style:none;position:relative}
+.preguntas summary::-webkit-details-marker{display:none}
+.preguntas summary::after{content:"+";position:absolute;right:4px;top:10px;font-size:1.6rem;color:var(--pasto)}
+.preguntas details[open] summary::after{content:"–"}
+.preguntas details p{color:var(--suave)}
+
+/* Contacto */
+.datos{list-style:none;padding:0;margin:0 0 24px}
+.datos li{padding:14px 0;border-bottom:1px solid var(--borde)}
+.datos b{display:block;font-family:var(--f-tit)}
+.mapa{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radio)}
+
+/* Documentos */
+.documentos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 32px;list-style:none;padding:0}
+.documentos a{display:block;padding:10px 0;border-bottom:1px solid var(--borde);text-decoration:none;color:var(--pino)}
+.documentos a:hover{color:var(--pasto)}
+.documentos small{color:var(--suave)}
+@media (max-width:640px){.documentos{grid-template-columns:1fr}}
+
+/* Línea de tiempo de la historia */
+.historia{list-style:none;padding:0;margin:0;border-left:3px solid var(--pasto)}
+.historia li{padding:0 0 26px 26px;position:relative}
+.historia li::before{content:"";position:absolute;left:-10px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--cielo);border:3px solid var(--pasto)}
+.historia .anio{font-family:var(--f-tit);font-weight:800;font-size:1.4rem}
+
+/* Llamado final */
+.llamado{text-align:left}
+.llamado .envoltura{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.llamado h2{margin:0;max-width:22ch}
+
+/* Pie */
+.pie{background:var(--pino);color:#C7DACF;padding:48px 0 96px;font-size:.96rem}
+.pie .envoltura{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.pie b{color:var(--papel);font-family:var(--f-tit)}
+.pie a{color:#E9F2EC}
+.pie ul{list-style:none;padding:0;margin:8px 0 0}
+.pie li{margin-bottom:6px}
+.pie .legal{grid-column:1/-1;max-width:none;border-top:1px solid #2E4D43;padding-top:20px;font-size:.88rem}
+@media (max-width:760px){.pie .envoltura{grid-template-columns:1fr}}
+
+/* WhatsApp flotante */
+.wsp-flotante{position:fixed;right:18px;bottom:18px;z-index:40;background:#25D366;color:#0B3D21;border-radius:999px;padding:14px 18px;display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-tit);font-weight:700;box-shadow:0 6px 18px rgba(23,49,42,.25)}
+.wsp-flotante:hover{color:#0B3D21;background:#1FBE5B}
+.wsp-flotante svg{width:24px;height:24px}
+@media (max-width:480px){.wsp-flotante span{display:none}.wsp-flotante{padding:14px}}
+
+/* Animación única: las aves de la ilustración */
+@keyframes vuelo{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,-5px)}}
+.ave{animation:vuelo 5s ease-in-out infinite}
+.ave.b{animation-delay:-2.5s}
+
+.pequeno{font-size:.92rem;color:var(--suave)}
+.centrado-sm{margin-top:24px}
