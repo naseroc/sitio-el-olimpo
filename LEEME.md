@@ -1,4 +1,4 @@
-# Sitio web — Escuela de Párvulos El Olimpo
+# Sitio web — Jardín Infantil El Olimpo
 
 Sitio estático de 7 páginas, listo para subir al hosting de parvulosolimpo.cl (o para copiar sus textos y estructura en WordPress).
 

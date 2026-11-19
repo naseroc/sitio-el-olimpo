@@ -24,7 +24,7 @@
     });
     if (!ok) return;
     var v = function (id) { return document.getElementById(id).value.trim(); };
-    var texto = 'Hola, soy ' + v('nombre') + '. Me gustaría agendar una visita a El Olimpo.' +
+    var texto = 'Hola, soy ' + v('nombre') + '. Me gustaría agendar una visita al Jardín Infantil El Olimpo.' +
       '\nNivel: ' + v('nivel') +
       '\nJornada: ' + v('jornada') +
       (v('cuando') ? '\nMe acomoda: ' + v('cuando') : '');
